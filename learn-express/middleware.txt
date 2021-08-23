@@ -1,0 +1,16 @@
+미들웨어는 req, res, next를 매개 변수로 가지는 함수(에러 처리 미들웨어만 예외 적으로 err, req, res, next를 가집니다.)로서
+app.use 나 app.get, app.post 등으로 장착합니다. 특정한 주소의 요청에만 미들웨어가 실행되게 하려면 첫 번째 인수로 주소를 넣으면 된다. 
+
+app.use(
+    morgan('dev')
+    express.static('/', path.join(__dirname. 'public')),
+    express.json(),
+    express.urlencoded({extended: false}),
+    cookieParser(process.env.COOKIE_SECRET)
+)
+이런식으로 미들웨어를 한번에 장착할 수 있고, 이 미들웨어에서 다른 미들웨어로 넘어 가려면
+next()반드시 필요하다. 
+
+next 호출 하지 않은 미들웨어는 res.send, res.sendFile 등의 메서드로 응답을 보내야한다. 
+express.static 과 같은 미들웨어는 정적 파일을 제공할때 next 대신 res.sendFile 메서드로 응답을 보낸다. 
+

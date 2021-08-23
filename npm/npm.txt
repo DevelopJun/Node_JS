@@ -1,0 +1,25 @@
+npm은 node Package Manager의 약어로, 이름 그대로 ㅗㄴ드 패키지 매니저이다. 
+서비스에 필요한 패키지를 하나씩 추가하다 보면 어느새 패키지 수가 100개를 넘어버리게 되는데, 
+이러한 패키지는 어딘가 기록해야한다, 이 파일이 바로 package.json이다.
+
+따라서 노드 프로젝트를 시작하기 전에는 폴더 내부에 무조건 package.json부터 만들고 시작해야 한다.
+
+npm init => 후에 
+
+package name: 패키지 이름이다. 
+version: 패키지의 버전이다. npm의 버전은 다소 엄격하게 관리된다, 
+entry point: 자바스크립트 실행 파일 진입점이다. package json의 main 속성에 저장
+test command: 코드를 테스트 할때 입력할 명령어를 의미한다. package js on scripts 속상의 test 속성에 저장
+git repostiory: 코드를 저장해둔 깃 저장소 주소를 의미한다. 
+난중에 소스에 문제 생겼을 떄 사용자들이 이 저장소에 방문해 문제 제기할수도
+keywords: 키워드는 npm 공식 홈페이지에서 패키지를 쉽게 찾을 수 있음. 
+
+license: 해당 패키지의 라이선스를 넣으면 된다. 
+-> 오픈소스라고 해서 모든 패키지 아무런 제약없이 사용하는 X 이후 사용 프로그램을 개발했을 때 법적 문제가
+생길 수 있다.
+
+npm i express를 설치하면,(express 패키지)
+package-lock.json 과 node_modules 받을 수 있다. 
+
+제일 중요한건 npm install init 으로 개발한 package.json임 
+node_modules는 그렇게 중요한 것은 아니다. npm install 로 다시 다운 받으면 된다. 

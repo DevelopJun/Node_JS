@@ -1,0 +1,17 @@
+doctype html 
+- const node ='Node.js'
+- const js = 'Javascript'
+
+html 
+    head 
+        title= title 
+        h1= title 
+        p Welcome to #{title}
+        button(class=title, type='submit') 전송
+        input(placeholder=title + '연습')
+        br
+        p #{node}와 #{js}
+        // 반복문 가능 // 인덱스도 가능 
+        ul
+        each fruit, index in ['사과', '배', '오렌지', '바나나', '복숭아']
+            li= (index + 1) + '번째' + fruit

@@ -1,0 +1,15 @@
+sequelize 속편화하다.
+
+시퀼라이즈는 ORM(Object-relational Mapping)으로 분리된다. 
+ORM은 자바스크립트 객체와 데이터베이스의 릴레이션을 매핑해주는 도구이다.
+
+시퀼라이즈를 오로지 MySQL과 같이 써야만 하는 것은 아니다. MariaDB, PostgreSQL, SQLite, MSSQL
+ 등 다른 데이터 베이스도 가능하다. 
+ 
+ 시퀄라이즈를 쓰는 이유는 자바스크립트 구문을 알아서 SQL로 바꿔주기 떄문이다. 따라서 SQL 언어를 직접 사용하지 않아도 
+ 자바스크립트 만으로 MySQL을 어느 정도는 알 수 있다.
+
+ sequelize-cli는 시퀄라이즈 명령어를 실행하기 위한 패키지이고, mysql2는 mysql과 시퀄라이즈를 이어주는드라이브다. 
+ mysql2 자체가 데이터베이스 프로그램은 아님.
+
+ 

@@ -1,6 +1,4 @@
-const { STRING, INTEGER, TINYINT, BOOLEAN, DATE } = require('sequelize');
 const Sequelize = require('sequelize');
-const { now } = require('sequelize/types/lib/utils');
 
 module.exports = class User extends Sequelize.Model{
     // 메서드 2개 존재, 
@@ -41,7 +39,9 @@ module.exports = class User extends Sequelize.Model{
         });
     }
     //associate는 다른 모델과 관계 설정
-    static associate(db) {}
+    static associate(db) {
+        db.User.hasMany(db.Comment, { foreignKey : 'commenter', sourceKey: 'id'}); // hasMany에서는 sourceKey에 id를 넣고 
+    }
 };
 
 

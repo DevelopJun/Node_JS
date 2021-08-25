@@ -12,4 +12,40 @@ ORM은 자바스크립트 객체와 데이터베이스의 릴레이션을 매핑
  sequelize-cli는 시퀄라이즈 명령어를 실행하기 위한 패키지이고, mysql2는 mysql과 시퀄라이즈를 이어주는드라이브다. 
  mysql2 자체가 데이터베이스 프로그램은 아님.
 
+
+ ->
+ 일대다 관계 1: N -> 댓글 같은 것 
+ sequelize에서는 1:N관계를 hasMany라는 메서드로 표현한다. users 테이블의 로우 하나를 불러올때 연결된 comments 테이블의 로우들도 같이 불러올 수 있따. 
+ 반대로 belongsTo 메서드도 이ㄸ싸. commnets 테이블의 로우를 불러올 때 연결된 users 테이블의 로우를 가져온다. 
+
+
+ 일대일 관계 -> 사용자와 사용자에 대한 정보 테이블 
+ hasMany 메서드 대신에 hasOne 메서드를 사용한다, 사용자 정보를 담고있는 가상의 Info 모델이 있다고 하면 당므과 같이 
+ 사용자 정보를 담고 있는 가상의 Info 모델이 있다고 하면 
+ db.User.hasOne(db.Info, {foreginKey: 'UserId', sourceKey: 'id' });
+ db.Info.belongsTo(db.User, { foreginKey: 'UserId', targetKey: 'id'});
+ 1:1 관계라도 belongsTo와 hasOne이 반대면 안된다. 
+
  
+ 다대다 관계 -> 게시글 테이블과 해시태그(#) 테이블 관계 
+N:M 관계를 표현하기 위한 belongsToMany 메서드가 있다. 게시글 정보를 담고 있는 가상의 Post 모델과 
+해시태그 정보를 담고 있는 가상의 Hashtag 모델이 있따고 하면 다음과 같이 표현된다. 
+db.Post.belongsToMany(db.Hashtag, {through: 'PostHashtag' })
+db.Hashtag.belongsToMany(db.Post, {through: 'PostHashtag' })
+
+양쪽 모델에 모두 belongsToMany 메서드를 사용한다. 
+
+#####################################################################################
+시퀄라이즈로 CRUD 작업을 하려면 먼저 시퀄라이즈 쿼리를 알아야 한다, 
+SQL 문으로 자바스크립트 생성이 아니라, 
+예를 들어 
+INSERT INTO nodejs.users (name, age, married, comment ) VALUES ('zero', 24, 0, '자기소개1')
+이렇게 MySQL 문을 
+const { User } = require('../models');
+User.create({
+    name: 'zero',
+    age: 24,
+    married: false,
+    comment: '자기소개'
+})
+이런식으로 예시는 기술문서 참조 .

@@ -11,3 +11,4 @@
 - Server => 연결설정   
 - Learn-express => express 사용법   
 - npm => 사용법   
+- mongoose => mongoose 사용법 및 mongoDB 연결하여 nodejs개발 

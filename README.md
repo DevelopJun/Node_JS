@@ -1,5 +1,6 @@
-# Node_JS-ALL-
- Node.js 의 모든 과정.   
+ Node.js 의 개념 및 개발 로직, 모듈 정리
+ =============
+ ## 파일 설명
 - CookSess => 쿠키와 세션 설정  
 - EVENT =>  이벤트 설정   
 - Exception =>  예외처리 설정  
@@ -12,3 +13,8 @@
 - Learn-express => express 사용법   
 - npm => 사용법   
 - mongoose => mongoose 사용법 및 mongoDB 연결하여 nodejs개발 
+
+## node js 개념 로직
+> 1. npm init -> package.json 만들어짐 
+> 2. express install 하면 -> node_module(다운 받은 dependecies들은 다 이 폴더에서 관리된다.)
+> 
